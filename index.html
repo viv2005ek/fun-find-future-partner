@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Future Partner</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body style="text-align: center; background-color: pink;">
+  <h1>Find Your Future Partner 💗</h1>
+  <input type="text" placeholder="Your name" id="name" onkeypress="check(event)">
+  <button onclick="meme()">search</button>
+  <br>
+  <br>
+  <iframe id="video" style="visibility: hidden;" width="560" height="315" src="https://www.youtube.com/embed/bNQd1B88BxU?si=aofeA8NE6ElslJ9B&amp;start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <br>
+  
+</body>
+  <script>
+     function check(event){
+        if (event.key === "Enter") {
+            meme();
+           // console.log("Enter pressed");
+          }
+     }
+    function meme(){
+       var name = document.getElementById("name").value.trim().toUpperCase();
+       video.style.visibility = "visible";
+       var vrandaElements = document.querySelectorAll(".vranda");
+       vrandaElements.forEach(function(element) {
+           element.style.visibility = "hidden";
+       });
+      var existingVinayak = document.getElementById("vinayak");
+       if (existingVinayak) {
+           existingVinayak.parentNode.removeChild(existingVinayak);
+       }
+      var existingVivek = document.getElementById("vivek");
+       if (existingVivek) {
+           existingVivek.parentNode.removeChild(existingVivek);
+       }
+
+       if(name == "VINAYAK" || name == "VINAYAK SETH") {
+          var vinayak = document.createElement("h1");
+         vinayak.id = "vinayak";
+          vinayak.innerHTML = "uske alawa koi bhi 😂😂😂";
+          document.body.appendChild(vinayak);
+       } else if (name == "VRANDA" || name == "VRANDA GARG") {
+          video.style.visibility = "hidden";
+          var vranda = document.createElement("video");
+          vranda.src = "pdle.mp4"; 
+          vranda.autoplay = true;
+          vranda.classList.add("vranda");
+          vranda.style.position = "absolute";
+         vranda.style.right = "560px";
+
+          vranda.style.bottom = "315px";
+          document.body.appendChild(vranda);
+       }
+      else if(name=="VIVEK" || name=="VIVEK KUMAR" ||name=="VIVEK GARG" || name == "VIVEK KUMAR GARG" || name=="GARG VIVEK"|| name=="GARG KUMAR VIVEK" ){
+         video.style.visibility = "hidden";
+        var vivek = document.createElement("h1");
+         vivek.id = "vivek";
+            vivek.innerHTML = "isse tujhe kya";
+          document.body.appendChild(vivek);
+
+      }
+     }
+  </script>
+</html>
