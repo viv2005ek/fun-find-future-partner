@@ -12,9 +12,27 @@
 <body style="text-align: center; background-color: pink; display: flex; flex-direction: column ;justify-content: center; ">
     <div>
         <h1>Find Your Future Partner 💗</h1>
-        <input type="text" placeholder="Your name" id="name" onkeypress="check(event)">
-        <button onclick="meme()">search</button>
+        <form action="" id="partnerForm">
+            <input type="text" placeholder="Your name" id="name" required>
+            <br>
+            <br>
+            <input type="number" placeholder="Your Age" id="Age" required>
+            <br>
+            <br>
+            <div id="genderOptions">
+                <label for="gender">Gender:</label><br>
+                <input type="radio" id="male" name="gender" value="Male">
+                <label for="male">Male</label><br>
+                <input type="radio" id="female" name="gender" value="Female">
+                <label for="female">Female</label><br>
+                <input type="radio" id="other" name="gender" value="Other">
+                <label for="other">Other</label><br>
+            </div>
+            <br>
+            <button type="submit" onsubmit="meme()">search</button>
     </div>
+    </form>
+
     <br><br>
 
     <video id="video" style="display: none;" width="100%" height="315" autoplay loop>
@@ -25,14 +43,13 @@
 
 </body>
 <script>
-    function check(event) {
-        if (event.key === "Enter") {
-            meme();
-            // console.log("Enter pressed");
-        }
-    }
+    document.getElementById("partnerForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        meme();
+    });
 
     function meme() {
+        event.preventDefault();
         var name = document.getElementById("name").value.trim().toUpperCase();
         var video = document.getElementById("video");
         video.style.display = "inline";
